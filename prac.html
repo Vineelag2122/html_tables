@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button{
+            margin-right: 20px;
+            padding: 9px;
+            width: 70px;
+            text-align: center;
+            background-color: azure;
+        }
+    </style>
+</head>
+<body>
+    <button id="q1">Question 1</button>
+    <button id="q2">Question 2</button>
+    <button id="q3">Question 3</button>
+    <button id="q4">Question 4</button>
+    <button id="q5">Question 5</button>
+    <button id="q6">Question 6</button>
+    <button id="q7">Question 7</button>
+
+    <h3 id="myh3"></h3>
+    <h4 id="myh4"></h4>
+
+    <div style="text-align: center; margin: 50px;" id="co"></div>
+    <script>
+        document.getElementById("q1").onclick=function(){
+            arr=[2,3,5];
+            console.log(arr.length);
+            let s=0;
+            for (let i=0;i<arr.length;i++){
+                s=s+arr[i];
+            }
+            console.log(`sum is ${s}`);
+        }
+
+        document.getElementById("q2").onclick=function(){
+            let st=window.prompt("Enter a string");
+            console.log(st);
+            let r=st.split('').reverse().join('');
+            document.getElementById("myh3").textContent=`hello ${st} . your name reversed is ${r}`;
+        }
+
+        document.getElementById("q3").onclick=function(){
+            let s=window.prompt("enter a number");
+            s=Number(s);
+            document.getElementById("myh3").textContent=s;
+            let arr=[];
+            for(let x=2;x<=s;x++){
+                let count=0;
+                for(let j=2;j<x;j++){
+                    if(x%j==0)
+                        count++;
+                }
+            if(count==0)
+            arr.push(x);
+            }
+            document.getElementById("myh4").textContent=arr;
+        }
+
+        document.getElementById("q4").onclick=function(){
+            let htmlcon='<button id="pink" class="button">pink</button><button id="red" class="button">red</button><button id="blue" class="button">blue</button><button id="green" class="button">green</button>';
+            document.getElementById("co").innerHTML=htmlcon;
+
+            document.getElementById("pink").onclick=function(){
+            document.body.style.backgroundColor="lightpink";
+            }
+            document.getElementById("red").onclick=function(){
+            document.body.style.backgroundColor="red";
+            }
+            document.getElementById("blue").onclick=function(){
+            document.body.style.backgroundColor="lightblue";
+            }
+            document.getElementById("green").onclick=function(){
+            document.body.style.backgroundColor="lightgreen";
+            }
+        }
+
+        document.getElementById("q5").onclick=function(){
+            let htmlcon='<label for="age">Enter your age:</label><input type="text" id="a"><br><br><button id="sub">submit</button>';
+            document.getElementById("myh3").innerHTML=htmlcon;
+
+            document.getElementById("sub").onclick=function(){
+            let age=document.getElementById("a").value;
+            if(age<12)
+                document.getElementById("myh4").textContent=`you are child`;
+            else if(age<18)
+                document.getElementById("myh4").textContent=`you are Teenage`;
+            else if(age<=30)
+                document.getElementById("myh4").textContent=`you are Young`;
+            else
+                document.getElementById("myh4").textContent=`you are senior citizen`;
+            }
+        }
+
+        document.getElementById("q6").onclick=function(){
+            let htmlcon='<label>enter value of A:</label><input type="text" id="aval"><br><br><label>enter value of B:</label><input type="text" id="bval"><br><br><button id="ab">add</button><button id="sb">sub</button><button id="mb">multiply</button><button id="db">division</button><p id="pa">result will be displayed here</p>';
+            document.getElementById("myh3").innerHTML=htmlcon;
+
+            document.getElementById("ab").onclick=function(){
+                let aval=parseInt(document.getElementById("aval").value);
+                let bval=parseInt(document.getElementById("bval").value);
+                let res=document.getElementById("pa");
+                let z=aval+bval;
+                res.innerHTML=z;
+            }
+            document.getElementById("sb").onclick=function(){
+                let aval=parseInt(document.getElementById("aval").value);
+                let bval=parseInt(document.getElementById("bval").value);
+                let res=document.getElementById("pa");
+                let z=aval-bval;
+                res.innerHTML=z;
+            }
+            document.getElementById("mb").onclick=function(){
+                let aval=parseInt(document.getElementById("aval").value);
+                let bval=parseInt(document.getElementById("bval").value);
+                let res=document.getElementById("pa");
+                let z=aval*bval;
+                res.innerHTML=z;
+            }
+            document.getElementById("db").onclick=function(){
+                let aval=parseInt(document.getElementById("aval").value);
+                let bval=parseInt(document.getElementById("bval").value);
+                let res=document.getElementById("pa");
+                let z=aval/bval;
+                res.innerHTML=z;
+            }
+        }
+        
+        document.getElementById("q7").onclick=function(){
+            let htmlcon='<label for="na">Enter your name: </label><input type="text" name="na" id="n"><br><br><label >Enter your marks below</label><br><br><label for="sub1">Subject 1: </label><input type="number" name="sub1" id="s1"><br><br><label for="sub2">Subject 2: </label><input type="number" name="sub2" id="s2"><br><br><label for="sub3">Subject 3: </label><input type="number" name="sub3" id="s3"><br><br><label for="sub4">Subject 4: </label><input type="number" name="sub4" id="s4"><br><br><label for="sub5">Subject 5: </label><input type="number" name="sub5" id="s5"><br><br><button id="sub">Submit</button><p id="res">result will be displayes here..</p>';
+            document.getElementById("myh3").innerHTML=htmlcon;
+
+            document.getElementById("sub").onclick=function(){
+            var s1=Number(document.getElementById("s1").value);
+            var s2=Number(document.getElementById("s2").value);
+            var s3=Number(document.getElementById("s3").value);
+            var s4=Number(document.getElementById("s4").value);
+            var s5=Number(document.getElementById("s5").value);
+            var sum=0;
+            sum=s1+s2+s3+s4+s5;
+            var avg=0;
+            avg=sum/5.0;
+            document.getElementById("res").textContent=`sum is ${sum} and average is ${avg}`;
+}
+        }
+    </script>
+</body>
+</html>
